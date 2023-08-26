@@ -69,6 +69,7 @@ function Weather() {
     function errorCallback() {
       alert(`Please Allow Location Access`);
     }
+    
   }
 
   return (
@@ -113,7 +114,9 @@ function Weather() {
               <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}/>
             </div>
             <p>
-              <span>Temperature:</span> {Math.round(weather.main.feels_like)}
+           
+              <span>Temperature:</span> {Math.round(weather.main.feels_like)} 
+              &deg;C
             </p>
             <p>
               <span>Your Location:</span> {weather.name}, {weather.sys.country}

@@ -41,11 +41,12 @@ div.container {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  background: linear-gradient(120deg, #DEE4EA, #F9FCFF);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 500px;
+
   min-width: 350px;
   border-radius: 2rem;
- 
 
   padding: 1rem;
 
@@ -55,17 +56,26 @@ div.container {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    margin-bottom: 1rem;
   }
 
   div.data {
-    height: 400px;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(10px);
   }
+
   hr {
-    height: 0.3rem;
+    height: 0.5rem;
     background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
     border-radius: 2rem;
     width: 100%;
@@ -88,14 +98,17 @@ div.container {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
-   
+    p {
+      font-size: 1.3rem;
+    }
 
-    div.imageHolder{
-        height: 100px;
+    div.imageHolder {
+      height: 100px;
 
-        img{
-            height: 100%;
-        }
+      img {
+        height: 100%;
+        filter: drop-shadow(2px 2px 2px #000);
+      }
     }
   }
 }
@@ -128,6 +141,11 @@ input.inputBox {
   padding: 0.2rem 1rem;
   position: relative;
   transition: all 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 .btn-common:hover,
@@ -155,9 +173,15 @@ div.initailWrapper {
     border-radius: 0;
   }
 
-  div.data{
+  div.data {
     flex-grow: 1;
     height: 100% !important;
+
+    div.Text {
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 }
 
@@ -169,14 +193,16 @@ div.social {
   align-items: center;
   justify-content: center;
   width: 100%;
-  
-  i{
-    font-family: "Roboto",sans-serif;
+
+  i {
+    font-family: "Roboto", sans-serif;
     font-weight: 700;
+    color: #b4b4b4;
     font-style: normal;
-    font-size: .6rem;
+    font-size: 0.6rem;
   }
 
+  
   div.icons {
     flex-grow: 1;
     align-self: flex-start;
@@ -184,8 +210,12 @@ div.social {
   }
 
   a.icon {
-    color: #fff;
+    color: #F9FCFF;
     filter: drop-shadow(1px 1px 2px #000);
     /*  */
+  }
+
+  a.icon:hover {
+    color: #fff;
   }
 }

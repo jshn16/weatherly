@@ -8,6 +8,10 @@ function App() {
   //useEffect to set title
   useEffect(() => {
     document.title = "Weatherly"
+    function handleContextMenu(event){
+      event.preventDefault()
+    }
+    window.addEventListener('contextmenu',handleContextMenu)
   }, [])
 
   return (
