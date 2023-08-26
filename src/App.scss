@@ -98,8 +98,27 @@ div.container {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    div.info{
+      width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: row;
+    }
+
+   label{
+    font-family: $primaryFont;
+    font-weight: 700;
+    min-width: 150px;
+    flex-grow: 1;
+   }
+
+   label::after{
+    content: ":";
+   }
+
     p {
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
 
     div.imageHolder {

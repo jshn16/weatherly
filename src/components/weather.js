@@ -22,19 +22,40 @@ function Weather() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(locationValue);
+    console.log(weather.name)
 
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${locationValue}&units=metric&appid=${APIkey}`;
+    if (locationValue) {
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${locationValue}&units=metric&appid=${APIkey}`;
 
-    axios
-      .get(URL)
-      .then((response) => {
-        setWeather(response.data);
-      })
-      .catch((error) => {
-        alert("Enter Correct City Name");
-      });
+      axios
+        .get(URL)
+        .then((response) => {
+          setWeather(response.data);
+        })
+        .catch((error) => {
+          alert("Enter Correct City Name");
+        });
 
-      
+    }
+    else if (weather.name) {
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${weather.name}&units=metric&appid=${APIkey}`;
+
+      axios
+        .get(URL)
+        .then((response) => {
+          setWeather(response.data);
+        })
+        .catch((error) => {
+          
+          alert("Enter Correct City Name");
+        });
+
+    }
+
+
+
+
+
   }
 
   function handleDetect(event) {
@@ -56,20 +77,15 @@ function Weather() {
       axios.get(URL).then((response) => {
 
         setWeather(response.data);
-
-
-
         console.log(response.data);
-     
-      });
 
-      
+      });
     }
 
     function errorCallback() {
       alert(`Please Allow Location Access`);
     }
-    
+
   }
 
   return (
@@ -82,6 +98,7 @@ function Weather() {
           type="text"
           placeholder="Search"
           defaultValue={weather.name}
+          
           onChange={(event) => {
             setLocationValue(event.target.value);
           }}
@@ -111,9 +128,10 @@ function Weather() {
         ) : (
           <div className="Text">
             <div className="imageHolder">
-              <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}/>
+              <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
             </div>
-            <p>
+            {/* <p>
+          
            
               <span>Temperature:</span> {Math.round(weather.main.feels_like)} 
               &deg;C
@@ -123,7 +141,29 @@ function Weather() {
             </p>
             <p>
               <span>Current Weather:</span> {weather.weather[0].main}
-            </p>
+            </p> */}
+
+            <div className="info">
+              <label>Temperature</label>
+              <p>{Math.round(weather.main.feels_like)}
+                &deg;C</p>
+            </div>
+
+            <div className="info">
+              <label>Your Location</label>
+              <p>{weather.name}, {weather.sys.country}</p>
+            </div>
+
+
+            <div className="info">
+              <label>Current Weather</label>
+              <p>{weather.weather[0].main}</p>
+            </div>
+
+            <div className="info">
+              <label>Wind Speed</label>
+              <p>{weather.wind.speed}km/hr</p>
+            </div>
           </div>
         )}
       </div>
