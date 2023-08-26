@@ -122,11 +122,23 @@ div.container {
     }
 
     div.imageHolder {
-      height: 100px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+
+      p{
+        font-size: 3rem;
+        font-family: $primaryFont;
+      }
 
       img {
+        
         height: 100%;
         filter: drop-shadow(2px 2px 2px #000);
+       
+        
       }
     }
   }
@@ -180,8 +192,9 @@ div.initailWrapper {
   flex-direction: column;
 
   div:nth-child(1) svg {
-    font-size: 6rem;
-    filter: drop-shadow(1px 1px 3px #000);
+    fill: #F9FCFF;
+    font-size: 10rem;
+    filter: drop-shadow(2px 2px 4px #000);
   }
 }
 

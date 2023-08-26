@@ -76,6 +76,7 @@ function Weather() {
       axios.get(URL).then((response) => {
 
         setWeather(response.data);
+        console.warn(response.data)
         
 
       });
@@ -128,6 +129,8 @@ function Weather() {
           <div className="Text">
             <div className="imageHolder">
               <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
+              <p>{Math.round(weather.main.temp)}
+                &deg;C</p>
             </div>
             {/* <p>
           
@@ -143,7 +146,7 @@ function Weather() {
             </p> */}
 
             <div className="info">
-              <label>Temperature</label>
+              <label>Feels Like</label>
               <p>{Math.round(weather.main.feels_like)}
                 &deg;C</p>
             </div>
