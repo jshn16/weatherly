@@ -21,8 +21,7 @@ function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(locationValue);
-    console.log(weather.name)
+    
 
     if (locationValue) {
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${locationValue}&units=metric&appid=${APIkey}`;
@@ -77,7 +76,7 @@ function Weather() {
       axios.get(URL).then((response) => {
 
         setWeather(response.data);
-        console.log(response.data);
+        
 
       });
     }
@@ -96,7 +95,7 @@ function Weather() {
         <input
           className="inputBox"
           type="text"
-          placeholder="Search"
+          placeholder="City"
           defaultValue={weather.name}
           
           onChange={(event) => {
