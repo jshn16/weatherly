@@ -15,7 +15,7 @@ function Weather() {
 
   const [locationValue, setLocationValue] = useState("");
 
-  let form = useRef()
+ 
 
   let APIkey = "f1729af3aff7828bdc4bec635f80fcc0";
 
@@ -92,7 +92,7 @@ function Weather() {
     <div className="container">
       <h1>Weatherly</h1>
       <hr />
-      <form ref={form}>
+      <form >
         <input
           className="inputBox"
           type="text"
@@ -132,18 +132,7 @@ function Weather() {
               <p>{Math.round(weather.main.temp)}
                 &deg;C</p>
             </div>
-            {/* <p>
-          
-           
-              <span>Temperature:</span> {Math.round(weather.main.feels_like)} 
-              &deg;C
-            </p>
-            <p>
-              <span>Your Location:</span> {weather.name}, {weather.sys.country}
-            </p>
-            <p>
-              <span>Current Weather:</span> {weather.weather[0].main}
-            </p> */}
+        
 
             <div className="info">
               <label>Feels Like</label>
