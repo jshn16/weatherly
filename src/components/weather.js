@@ -122,7 +122,7 @@ function Weather() {
             <div className="Text">
               <p>No Weather Data Available</p>
               <p>To Detect Automatically Press Location</p>
-              <p>To Detect Manually Detect Enter City Name</p>
+              <p>To Detect Manually Enter City Name</p>
             </div>
           </div>
         ) : (
