@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Raleway:wght@500;700;900&family=Roboto:wght@500;700;900&display=swap");
+
+* {
+  scroll-behavior: smooth !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none !important;
+}
+
+//Declaring Variables In Sass
+$primaryFont: "RaleWay", "sans-serif";
+$secondaryFont: "Quicksand", "sans-serif";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+span {
+  font-family: $primaryFont;
+  font-weight: 900;
+}
+
+p,
+li,
+a {
+  font-family: $secondaryFont;
+  font-weight: 900;
+}
+
+div.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 500px;
+  min-width: 350px;
+  border-radius: 2rem;
+ 
+
+  padding: 1rem;
+
+  form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  div.data {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  hr {
+    height: 0.3rem;
+    background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+    border-radius: 2rem;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 2rem;
+  }
+
+  h1 {
+    background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  div.Text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+   
+
+    div.imageHolder{
+        height: 100px;
+
+        img{
+            height: 100%;
+        }
+    }
+  }
+}
+
+input.inputBox {
+  flex-grow: 1;
+  border: none;
+  border-radius: 16px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 900;
+  padding: 0.5rem;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-common {
+  background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+  background-size: 200%;
+  border-radius: 2rem;
+  border-width: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+  color: #fff;
+  cursor: pointer;
+  font-family: Quicksand, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.2rem;
+  outline: none;
+  overflow: hidden;
+  padding: 0.2rem 1rem;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-common:hover,
+.btn-common:active {
+  background-position: 200%;
+  border-radius: 0.5rem;
+}
+
+div.initailWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  div:nth-child(1) svg {
+    font-size: 6rem;
+    filter: drop-shadow(1px 1px 3px #000);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  div.container {
+    margin-top: 0;
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  div.data{
+    flex-grow: 1;
+    height: 100% !important;
+  }
+}
+
+div.social {
+  /* height: 20px; */
+  margin-top: 1rem;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  i{
+    font-family: "Roboto",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: .6rem;
+  }
+
+  div.icons {
+    flex-grow: 1;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+
+  a.icon {
+    color: #fff;
+    filter: drop-shadow(1px 1px 2px #000);
+    /*  */
+  }
+}
