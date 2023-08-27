@@ -5,7 +5,7 @@ import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import PreLoader from "./animations/preLoader";
 import Weather from "./components/weather";
 function App() {
-  //useEffect to set title
+  // useEffect to set title
   // useEffect(() => {
   //   document.title = "Weatherly";
   //   console.warn(`You sneaky developer \n  what are you doing here?`);
