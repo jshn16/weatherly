@@ -10,48 +10,34 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 
-import mainGif from '../assets/main.gif'
+import mainGif from "../assets/main.gif";
 
 function Weather() {
-
-  
-
-  let time=new Date().getHours()
-  
+  let time = new Date().getHours();
 
   const [weather, setWeather] = useState([]);
-  const[greeting, setGreeting]=useState("")
- 
+  const [greeting, setGreeting] = useState("");
+
   const [locationValue, setLocationValue] = useState("");
 
-  let form=useRef()
+  let form = useRef();
 
-  useEffect(()=>{
- if(time>6 && time<12){
- 
-  setGreeting("Good Morning!")
-  
- }
- else if(time>12 && time <18){
- 
-  setGreeting("Good Afternoon!")
- }
- else{
-  
-  setGreeting("Good Night!")
- }
-  },[time])
- 
+  useEffect(() => {
+    if (time > 6 && time < 12) {
+      setGreeting("Good Morning!");
+    } else if (time > 12 && time < 18) {
+      setGreeting("Good Afternoon!");
+    } else {
+      setGreeting("Good Night!");
+    }
+  }, [time]);
 
-  
-
-  
+ 
 
   let APIkey = "f1729af3aff7828bdc4bec635f80fcc0";
 
   function handleSubmit(event) {
     event.preventDefault();
-    
 
     if (locationValue) {
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${locationValue}&units=metric&appid=${APIkey}`;
@@ -64,9 +50,7 @@ function Weather() {
         .catch((error) => {
           alert("Enter Correct City Name");
         });
-
-    }
-    else if (weather.name) {
+    } else if (weather.name) {
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${weather.name}&units=metric&appid=${APIkey}`;
 
       axios
@@ -75,19 +59,16 @@ function Weather() {
           setWeather(response.data);
         })
         .catch((error) => {
-          
           alert("Enter Correct City Name");
         });
-
     }
   }
 
+  //when user presses detect button
   function handleDetect(event) {
     event.preventDefault();
 
- 
-  form.current.reset();
-
+    form.current.reset();
 
     let location = navigator.geolocation;
 
@@ -100,36 +81,29 @@ function Weather() {
       let latitude = value.coords.latitude;
       let longitude = value.coords.longitude;
 
-     
-        
       let URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${APIkey}`;
 
       axios.get(URL).then((response) => {
-
         setWeather(response.data);
         // console.warn(response.data)
-        
-
       });
     }
 
     function errorCallback() {
       alert(`Please Allow Location Access`);
     }
-
   }
 
   return (
     <div className="container">
       <h1>Weatherly</h1>
       <hr />
-      <form ref={form} >
+      <form ref={form}>
         <input
           className="inputBox"
           type="text"
           placeholder="City"
           defaultValue={weather.name}
-          
           onChange={(event) => {
             setLocationValue(event.target.value);
           }}
@@ -158,27 +132,33 @@ function Weather() {
           </div>
         ) : (
           <div className="Text">
-
             <h1>{greeting}</h1>
-           
+
             <div className="imageHolder">
-              <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
-              <p>{Math.round(weather.main.temp)}
-                &deg;C</p>
+              <img
+                alt="icon"
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              />
+              <p>
+                {Math.round(weather.main.temp)}
+                &deg;C
+              </p>
             </div>
-        
 
             <div className="info">
               <label>Feels Like</label>
-              <p>{Math.round(weather.main.feels_like)}
-                &deg;C</p>
+              <p>
+                {Math.round(weather.main.feels_like)}
+                &deg;C
+              </p>
             </div>
 
             <div className="info">
               <label>Your Location</label>
-              <p>{weather.name}, {weather.sys.country}</p>
+              <p>
+                {weather.name}, {weather.sys.country}
+              </p>
             </div>
-
 
             <div className="info">
               <label>Current Weather</label>

@@ -61,6 +61,7 @@ min-width: 200px;
 
   div.data {
     min-height: 40vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,8 +92,6 @@ min-width: 200px;
   }
 
   div.Text {
-    padding: 1rem;
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -100,6 +99,8 @@ min-width: 200px;
     background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    width: 100%;
+    padding: 1rem;
 
     p:nth-child(1){
       font-size: 2rem;
