@@ -35,6 +35,23 @@ function Weather() {
 
   let APIkey = "f1729af3aff7828bdc4bec635f80fcc0";
 
+  // console.log(locationValue)
+
+  function handleRecent(item) {
+    console.log(item.city);
+
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${item.city}&units=metric&appid=${APIkey}`;
+
+    axios
+      .get(URL)
+      .then((response) => {
+        setWeather(response.data);
+      })
+      .catch((error) => {
+        alert("Enter Correct City Name");
+      });
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -104,12 +121,11 @@ function Weather() {
       console.log(weatherObject);
       setWeatherData([...weatherData, weatherObject]);
     }
-    
   }, [weather]);
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem("data", JSON.stringify(weatherData));
-  })
+  });
 
   function data() {
     const data = localStorage.getItem("data");
@@ -211,14 +227,19 @@ function Weather() {
           <div className="recents">
             <h3>Recents</h3>
             <hr />
-            
-              {weatherData.map((item, key) => (
-                <div key={key} >
-                  <p >{item.city}</p>
-                  <span>{item.temp}&deg;C</span>
-                </div>
-              ))}
-            
+
+            {weatherData.map((item, key) => (
+              <div key={key}>
+                <p
+                  onClick={() => {
+                    handleRecent(item, key);
+                  }}
+                >
+                  {item.city}
+                </p>
+                <span>{item.temp}&deg;C</span>
+              </div>
+            ))}
           </div>
         )}
       </div>
