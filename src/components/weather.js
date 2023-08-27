@@ -5,11 +5,12 @@ import { v4 as uuid } from "uuid";
 //icons
 import SearchIcon from "@mui/icons-material/Search";
 import NearMeRoundedIcon from "@mui/icons-material/NearMeRounded";
-
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
+import HistoryIcon from '@mui/icons-material/History';
 
 import mainGif from "../assets/main.gif";
 
@@ -136,10 +137,8 @@ function Weather() {
     }
   }
   function handleDelete(weatherId) {
-    console.log(weatherData)
-    console.log(weatherId);
-    let filter=weatherData.filter((item)=>item.weatherId!==weatherId)
-    setWeatherData(filter)
+    let filter = weatherData.filter((item) => item.weatherId !== weatherId);
+    setWeatherData(filter);
   }
   return (
     <div className="container">
@@ -169,6 +168,7 @@ function Weather() {
           <div className="initailWrapper">
             <div className="icon">
               <img title="gif" alt="gif" src={mainGif} />
+              {/* GIF Credit: https://dribbble.com/shots/1099769-Google-Weather-GIF */}
             </div>
 
             <div className="Text">
@@ -226,12 +226,19 @@ function Weather() {
 
         {weatherData.length === 0 ? (
           <div className="recents">
-            <p>No Recent Data</p>
+            {/* <h2>No Recent Data</h2> */}
+          <section>
+            {<HistoryIcon/>}
+          </section>
+            
+         
+          
+            
           </div>
         ) : (
           <div className="recents">
-            <h3>Recents</h3>
-            <hr />
+            <h2>Recents</h2>
+            {/* <hr /> */}
 
             {weatherData.map((item, key) => (
               <div key={key}>
@@ -243,13 +250,14 @@ function Weather() {
                   {item.city}
                 </p>
                 <span>{item.temp}&deg;C</span>
-                <button
+                <span
+                  className="delete"
                   onClick={() => {
                     handleDelete(item.weatherId);
                   }}
                 >
-                  Delete
-                </button>
+                  {<HighlightOffIcon />}
+                </span>
               </div>
             ))}
           </div>

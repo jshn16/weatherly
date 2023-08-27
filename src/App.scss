@@ -75,7 +75,7 @@ div.container {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-
+padding: 0;
     background: rgba(255, 255, 255, 0);
     border-radius: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -88,7 +88,7 @@ div.container {
     background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
     border-radius: 2rem;
     width: 100%;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     border-radius: 2rem;
   }
 
@@ -100,14 +100,41 @@ div.container {
   }
 
   div.recents {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    flex-direction: column;
     width: 100%;
     padding: 1rem;
     overflow: auto;
     height: 20vh;
+    background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+    border-radius: 0 0 1rem 1rem;
 
-    > div {
+    h2 {
+      font-family: "Roboto", sans-serif;
+      color: #fff;
+    }
+
+    section {
+      height: 100%;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        animation-name: glow;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+        fill: #fff;
+        font-size: 4rem;
+      }
+    }
+    > div {
+      color: #fff;
+      background-color: #cccccc37;
+      display: flex;
+      align-items: center;
       justify-content: center;
       flex-direction: row;
       width: 100%;
@@ -116,14 +143,39 @@ div.container {
       padding: 0.5rem;
       border-radius: 2rem;
       cursor: pointer;
+      transition: 1s all linear;
 
       p {
         flex-grow: 1;
+      }
+
+      svg {
+        font-size: 2rem;
+      }
+
+      span.delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        border: 0;
+        outline: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      svg {
+        
+      }
+
+      svg:hover {
+        fill: #ccc;
       }
     }
   }
 
   div.Text {
+    flex-grow: 1;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -226,6 +278,8 @@ input.inputBox {
 }
 
 div.initailWrapper {
+  flex-grow: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -293,5 +347,16 @@ div.social {
 
   a.icon:hover {
     color: #fff;
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 15px #000);
+  
+  }
+  to {
+    filter: drop-shadow(0 0 5px #000);
+    
   }
 }
