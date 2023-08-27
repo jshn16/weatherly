@@ -10,7 +10,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
-import HistoryIcon from '@mui/icons-material/History';
+import HistoryIcon from "@mui/icons-material/History";
 
 import mainGif from "../assets/main.gif";
 
@@ -154,11 +154,21 @@ function Weather() {
             setLocationValue(event.target.value);
           }}
         />
-        <button className="btn-common" onClick={handleSubmit} type="submit">
+        <button
+          title="search"
+          className="btn-common"
+          onClick={handleSubmit}
+          type="submit"
+        >
           <SearchIcon />
         </button>
 
-        <button className="btn-common" onClick={handleDetect} type="submit">
+        <button
+          title="detect"
+          className="btn-common"
+          onClick={handleDetect}
+          type="submit"
+        >
           <NearMeRoundedIcon />
         </button>
       </form>
@@ -227,13 +237,7 @@ function Weather() {
         {weatherData.length === 0 ? (
           <div className="recents">
             {/* <h2>No Recent Data</h2> */}
-          <section>
-            {<HistoryIcon/>}
-          </section>
-            
-         
-          
-            
+            <section>{<HistoryIcon />}</section>
           </div>
         ) : (
           <div className="recents">
@@ -267,6 +271,7 @@ function Weather() {
       <div className="social">
         <div className="icons">
           <a
+            title="My LinkedIn"
             target="_blank"
             rel="noreferrer"
             className="icon"
@@ -275,6 +280,7 @@ function Weather() {
             <LinkedInIcon />
           </a>
           <a
+            title="My GitHub"
             rel="noreferrer"
             target="_blank"
             className="icon"
@@ -283,6 +289,7 @@ function Weather() {
             <GitHubIcon />
           </a>
           <a
+            title="My Instagram"
             target="_blank"
             rel="noreferrer"
             className="icon"
@@ -292,6 +299,7 @@ function Weather() {
           </a>
 
           <a
+            title="My Portfolio"
             target="_blank"
             rel="noreferrer"
             className="icon"
