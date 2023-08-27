@@ -4,7 +4,7 @@ import axios from "axios";
 //icons
 import SearchIcon from "@mui/icons-material/Search";
 import NearMeRoundedIcon from "@mui/icons-material/NearMeRounded";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";

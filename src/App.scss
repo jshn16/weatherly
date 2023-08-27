@@ -91,7 +91,7 @@ min-width: 200px;
 
   div.Text {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
@@ -101,6 +101,7 @@ min-width: 200px;
     p:nth-child(1){
       font-size: 2rem;
       font-family: 'Roboto', sans-serif;
+      margin: .5rem 0;
     }
 
     div.info{
