@@ -45,7 +45,7 @@ div.container {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 500px;
 
-  min-width: 350px;
+min-width: 200px;
   border-radius: 2rem;
 
   padding: 1rem;
@@ -97,6 +97,11 @@ div.container {
     background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    p:nth-child(1){
+      font-size: 2rem;
+      font-family: 'Roboto', sans-serif;
+    }
 
     div.info{
       width: 100%;
@@ -191,11 +196,15 @@ div.initailWrapper {
   justify-content: center;
   flex-direction: column;
 
-  div:nth-child(1) svg {
-    fill: #F9FCFF;
-    font-size: 10rem;
-    filter: drop-shadow(2px 2px 4px #000);
+  div:nth-child(1) {
+    width: 200px;
+    img{
+      width: 100%;
+     
+    }
   }
+
+
 }
 
 @media screen and (max-width: 520px) {
@@ -206,11 +215,18 @@ div.initailWrapper {
   }
 
   div.data {
+    padding: 1rem;
+    justify-content: flex-start !important;
     flex-grow: 1;
     height: 100% !important;
+    
+
+   
 
     div.Text {
+     
       p {
+        flex-wrap: wrap;
         font-size: 1rem;
       }
     }

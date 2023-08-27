@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 //icons
@@ -10,12 +10,42 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 
-function Weather() {
-  const [weather, setWeather] = useState([]);
+import mainGif from '../assets/main.gif'
 
+function Weather() {
+
+  
+
+  let time=new Date().getHours()
+  
+
+  const [weather, setWeather] = useState([]);
+  const[greeting, setGreeting]=useState("")
+ 
   const [locationValue, setLocationValue] = useState("");
 
+  let form=useRef()
+
+  useEffect(()=>{
+ if(time>6 && time<12){
  
+  setGreeting("Good Morning!")
+  
+ }
+ else if(time>12 && time <18){
+ 
+  setGreeting("Good Afternoon!")
+ }
+ else{
+  
+  setGreeting("Good Night!")
+ }
+  },[time])
+ 
+
+  
+
+  
 
   let APIkey = "f1729af3aff7828bdc4bec635f80fcc0";
 
@@ -50,15 +80,14 @@ function Weather() {
         });
 
     }
-
-
-
-
-
   }
 
   function handleDetect(event) {
     event.preventDefault();
+
+ 
+  form.current.reset();
+
 
     let location = navigator.geolocation;
 
@@ -71,12 +100,14 @@ function Weather() {
       let latitude = value.coords.latitude;
       let longitude = value.coords.longitude;
 
+     
+        
       let URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${APIkey}`;
 
       axios.get(URL).then((response) => {
 
         setWeather(response.data);
-        console.warn(response.data)
+        // console.warn(response.data)
         
 
       });
@@ -92,7 +123,7 @@ function Weather() {
     <div className="container">
       <h1>Weatherly</h1>
       <hr />
-      <form >
+      <form ref={form} >
         <input
           className="inputBox"
           type="text"
@@ -116,7 +147,7 @@ function Weather() {
         {weather.length === 0 ? (
           <div className="initailWrapper">
             <div className="icon">
-              <TravelExploreIcon />
+              <img title="gif" alt="gif" src={mainGif} />
             </div>
 
             <div className="Text">
@@ -127,6 +158,9 @@ function Weather() {
           </div>
         ) : (
           <div className="Text">
+
+            <h1>{greeting}</h1>
+           
             <div className="imageHolder">
               <img alt="icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} />
               <p>{Math.round(weather.main.temp)}
@@ -149,6 +183,11 @@ function Weather() {
             <div className="info">
               <label>Current Weather</label>
               <p>{weather.weather[0].main}</p>
+            </div>
+
+            <div className="info">
+              <label>Humidity</label>
+              <p>{weather.main.humidity}%</p>
             </div>
 
             <div className="info">
