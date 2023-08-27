@@ -16,7 +16,7 @@ import mainGif from "../assets/main.gif";
 
 function Weather() {
   let time = new Date().getHours();
-
+  let date=new Date().toLocaleString();
   const [weather, setWeather] = useState([]);
   const [greeting, setGreeting] = useState("");
   const [weatherData, setWeatherData] = useState(data());
@@ -116,7 +116,9 @@ function Weather() {
     if (weather > [""]) {
       let weatherObject = {
         weatherId: uuid(),
+        dateValue: date,
         city: weather.name,
+        image: `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
         temp: Math.round(weather.main.feels_like),
       };
       console.log(weatherObject);
@@ -246,6 +248,7 @@ function Weather() {
 
             {weatherData.map((item, key) => (
               <div key={key}>
+                <div>
                 <p
                   onClick={() => {
                     handleRecent(item, key);
@@ -253,6 +256,15 @@ function Weather() {
                 >
                   {item.city}
                 </p>
+                <span>
+                  {item.dateValue}
+                </span>
+                  </div>
+                
+               <div className="imageHolder">
+                <img src={item.image}/>
+               </div>
+                
                 <span>{item.temp}&deg;C</span>
                 <span
                   className="delete"

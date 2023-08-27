@@ -114,6 +114,29 @@ div.container {
       color: #fff;
     }
 
+    div:nth-child(1){
+    
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+
+      span{
+        font-size: .5rem;
+        font-family: "Roboto", sans-serif;
+color: #ccc;
+      }
+    }
+
+
+    div.imageHolder{
+      height: 30px;
+
+      img{
+        height: 100%;
+      }
+    }
+
     section {
       height: 100%;
       display: flex;
@@ -132,6 +155,7 @@ div.container {
     }
 
     > div {
+      
       color: #fff;
       background-color: #cccccc37;
       display: flex;
@@ -141,7 +165,7 @@ div.container {
       width: 100%;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       margin: 0.5rem 0;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 2rem;
       cursor: pointer;
       transition: 1s all linear;
