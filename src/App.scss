@@ -114,25 +114,23 @@ div.container {
       color: #fff;
     }
 
-    div:nth-child(1){
-    
+    div:nth-child(1) {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       align-items: flex-start;
 
-      span{
-        font-size: .5rem;
+      span {
+        font-size: 0.5rem;
         font-family: "Roboto", sans-serif;
-color: #ccc;
+        color: #ccc;
       }
     }
 
-
-    div.imageHolder{
+    div.imageHolder {
       height: 30px;
 
-      img{
+      img {
         height: 100%;
       }
     }
@@ -155,7 +153,6 @@ color: #ccc;
     }
 
     > div {
-      
       color: #fff;
       background-color: #cccccc37;
       display: flex;
@@ -245,7 +242,7 @@ color: #ccc;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-grow: 1;
+      
 
       p {
         font-size: 3rem;
@@ -280,7 +277,7 @@ input.inputBox {
   color: #fff;
   cursor: pointer;
   font-family: Quicksand, sans-serif;
-  
+
   font-weight: 700;
   margin: 0.2rem;
   outline: none;
@@ -337,6 +334,8 @@ div.initailWrapper {
         flex-wrap: wrap;
         font-size: 1rem;
       }
+
+      
     }
   }
 }
