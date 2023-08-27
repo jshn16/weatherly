@@ -135,7 +135,12 @@ function Weather() {
       return [];
     }
   }
-
+  function handleDelete(weatherId) {
+    console.log(weatherData)
+    console.log(weatherId);
+    let filter=weatherData.filter((item)=>item.weatherId!==weatherId)
+    setWeatherData(filter)
+  }
   return (
     <div className="container">
       <h1>Weatherly</h1>
@@ -238,6 +243,13 @@ function Weather() {
                   {item.city}
                 </p>
                 <span>{item.temp}&deg;C</span>
+                <button
+                  onClick={() => {
+                    handleDelete(item.weatherId);
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             ))}
           </div>
