@@ -29,6 +29,14 @@ a {
   font-weight: 900;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar {
+  background: inherit;
+}
+
 div.App {
   display: flex;
   align-items: center;
@@ -41,11 +49,11 @@ div.container {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background: linear-gradient(120deg, #DEE4EA, #F9FCFF);
+  background: linear-gradient(120deg, #dee4ea, #f9fcff);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 500px;
 
-min-width: 200px;
+  min-width: 200px;
   border-radius: 2rem;
 
   padding: 1rem;
@@ -91,6 +99,29 @@ min-width: 200px;
     align-self: center;
   }
 
+  div.recents {
+    width: 100%;
+    padding: 1rem;
+    overflow: auto;
+    height: 20vh;
+
+    > div {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: row;
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 2rem;
+
+      p {
+        flex-grow: 1;
+      }
+    }
+  }
+
   div.Text {
     display: flex;
     align-items: flex-start;
@@ -102,30 +133,30 @@ min-width: 200px;
     width: 100%;
     padding: 1rem;
 
-    p:nth-child(1){
+    p:nth-child(1) {
       font-size: 2rem;
-      font-family: 'Roboto', sans-serif;
-      margin: .5rem 0;
+      font-family: "Roboto", sans-serif;
+      margin: 0.5rem 0;
     }
 
-    div.info{
+    div.info {
       width: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
     }
 
-   label{
-    font-family: $primaryFont;
-    font-weight: 700;
-    min-width: 150px;
-    flex-grow: 1;
-   }
+    label {
+      font-family: $primaryFont;
+      font-weight: 700;
+      min-width: 150px;
+      flex-grow: 1;
+    }
 
-   label::after{
-    content: ":";
-   }
+    label::after {
+      content: ":";
+    }
 
     p {
       font-size: 1rem;
@@ -139,17 +170,14 @@ min-width: 200px;
       justify-content: center;
       flex-grow: 1;
 
-      p{
+      p {
         font-size: 3rem;
         font-family: $primaryFont;
       }
 
       img {
-        
         height: 100%;
         filter: drop-shadow(2px 2px 2px #000);
-       
-        
       }
     }
   }
@@ -204,13 +232,11 @@ div.initailWrapper {
 
   div:nth-child(1) {
     width: 200px;
-    img{
+
+    img {
       width: 100%;
-     
     }
   }
-
-
 }
 
 @media screen and (max-width: 520px) {
@@ -225,12 +251,8 @@ div.initailWrapper {
     justify-content: flex-start !important;
     flex-grow: 1;
     height: 100% !important;
-    
-
-   
 
     div.Text {
-     
       p {
         flex-wrap: wrap;
         font-size: 1rem;
@@ -256,7 +278,6 @@ div.social {
     font-size: 0.6rem;
   }
 
-  
   div.icons {
     flex-grow: 1;
     align-self: flex-start;

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
 
 //icons
 import SearchIcon from "@mui/icons-material/Search";
@@ -17,7 +18,7 @@ function Weather() {
 
   const [weather, setWeather] = useState([]);
   const [greeting, setGreeting] = useState("");
-
+  const [weatherData, setWeatherData] = useState(data());
   const [locationValue, setLocationValue] = useState("");
 
   let form = useRef();
@@ -31,8 +32,6 @@ function Weather() {
       setGreeting("Good Night!");
     }
   }, [time]);
-
- 
 
   let APIkey = "f1729af3aff7828bdc4bec635f80fcc0";
 
@@ -85,12 +84,39 @@ function Weather() {
 
       axios.get(URL).then((response) => {
         setWeather(response.data);
-        // console.warn(response.data)
+
+        console.warn(response.data);
       });
     }
 
     function errorCallback() {
       alert(`Please Allow Location Access`);
+    }
+  }
+
+  useEffect(() => {
+    if (weather > [""]) {
+      let weatherObject = {
+        weatherId: uuid(),
+        city: weather.name,
+        temp: Math.round(weather.main.feels_like),
+      };
+      console.log(weatherObject);
+      setWeatherData([...weatherData, weatherObject]);
+    }
+    
+  }, [weather]);
+
+  useEffect(()=>{
+    localStorage.setItem("data", JSON.stringify(weatherData));
+  })
+
+  function data() {
+    const data = localStorage.getItem("data");
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      return [];
     }
   }
 
@@ -174,6 +200,25 @@ function Weather() {
               <label>Wind Speed</label>
               <p>{weather.wind.speed}km/hr</p>
             </div>
+          </div>
+        )}
+
+        {weatherData.length === 0 ? (
+          <div className="recents">
+            <p>No Recent Data</p>
+          </div>
+        ) : (
+          <div className="recents">
+            <h3>Recents</h3>
+            <hr />
+            
+              {weatherData.map((item, key) => (
+                <div key={key} >
+                  <p >{item.city}</p>
+                  <span>{item.temp}&deg;C</span>
+                </div>
+              ))}
+            
           </div>
         )}
       </div>
