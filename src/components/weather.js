@@ -12,7 +12,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import HistoryIcon from "@mui/icons-material/History";
 
-import mainGif from "../assets/main.gif";
+import mainGif from "../assets/googleweather.gif";
 
 function Weather() {
   let time = new Date().getHours();
@@ -262,7 +262,7 @@ function Weather() {
                   </div>
                 
                <div className="imageHolder">
-                <img src={item.image}/>
+                <img title="image" alt="weatherImage" src={item.image}/>
                </div>
                 
                 <span>{item.temp}&deg;C</span>
