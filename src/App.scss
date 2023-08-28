@@ -49,7 +49,7 @@ div.container {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background: linear-gradient(120deg, #dee4ea, #f9fcff);
+  
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 500px;
 
@@ -76,10 +76,11 @@ div.container {
     flex-direction: column;
     width: 100%;
     padding: 0;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.014);
     border-radius: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(0.5px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(10px);
   }
 
@@ -90,6 +91,8 @@ div.container {
     width: 100%;
     margin: 0.5rem 0;
     border-radius: 2rem;
+    outline: none;
+    border: none;
   }
 
   h1 {
@@ -152,7 +155,7 @@ div.container {
       }
     }
 
-    > div {
+    >div {
       color: #fff;
       background-color: #cccccc37;
       display: flex;
@@ -186,9 +189,6 @@ div.container {
         height: 100%;
       }
 
-      svg {
-      }
-
       svg:hover {
         fill: #ccc;
       }
@@ -201,7 +201,7 @@ div.container {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+    background: linear-gradient(200deg, #989898, #7303c0, #ec38bc);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     width: 100%;
@@ -291,11 +291,11 @@ input.inputBox {
   height: 100%;
 }
 
-.btn-common:hover,
-.btn-common:active {
-  background-position: 200%;
-  border-radius: 0.5rem;
-}
+// .btn-common:hover,
+// .btn-common:active {
+//   background-position: 200%;
+//   border-radius: 0.5rem;
+// }
 
 div.initailWrapper {
   flex-grow: 1;
@@ -378,5 +378,13 @@ div.social {
 
   to {
     filter: drop-shadow(0 0 5px #000);
+  }
+}
+
+@media(hover:hover){
+  .btn-common:hover,
+  .btn-common:active {
+    background-position: 200%;
+    border-radius: 0.5rem;
   }
 }
